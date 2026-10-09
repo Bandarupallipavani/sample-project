@@ -1,0 +1,13 @@
+{
+  "name": "devops-demo-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Simple backend API for a Docker Compose training demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

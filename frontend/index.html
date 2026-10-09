@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DevOps Frontend + Backend Demo</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 760px; margin: 48px auto; padding: 0 20px; line-height: 1.5; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 24px; }
+    button { padding: 10px 16px; cursor: pointer; border-radius: 8px; border: 0; }
+    pre { background: #f4f4f4; padding: 14px; border-radius: 8px; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .hint { color: #555; }
+  </style>
+</head>
+<body>
+  <h1>DevOps Training Demo</h1>
+  <div class="card">
+    <p>This page is served by the <strong>frontend Nginx container</strong>.</p>
+    <p class="hint">Click below to call the backend API through Nginx.</p>
+    <button id="callApi">Call Backend API</button>
+    <pre id="result">Click the button to fetch a response...</pre>
+  </div>
+  <script>
+    const button = document.getElementById("callApi");
+    const result = document.getElementById("result");
+    button.addEventListener("click", async () => {
+      result.textContent = "Calling backend...";
+      try {
+        const response = await fetch("/api/message");
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        result.textContent = JSON.stringify(data, null, 2);
+      } catch (error) {
+        result.textContent = `Request failed: ${error.message}`;
+      }
+    });
+  </script>
+</body>
+</html>
