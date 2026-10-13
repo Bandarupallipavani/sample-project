@@ -1,6 +1,6 @@
 # Simple Frontend + Backend DevOps Demo
 
-A small project for demonstrating Docker, Docker Compose, service networking, and Nginx reverse proxy.
+A small project for demonstrating Docker, Docker Compose, service networking, and Nginx reverse proxy..
 
 ## Project structure
 
